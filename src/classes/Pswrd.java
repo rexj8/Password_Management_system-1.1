@@ -14,7 +14,7 @@ public class Pswrd {
         String hashtext = enc.ceaserCypherEncode(pswrd);
 
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pms", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pms?autoReconnect=true&useSSL=false", "root", "root");
             String qry = "INSERT INTO CREDENTIALS(PSWD) VALUES(?);";
             PreparedStatement pstmt = con.prepareStatement(qry);
 
